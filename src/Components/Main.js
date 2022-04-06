@@ -9,8 +9,9 @@ const Main = props => {
         <div>
 
             <Header />
-
-            <BurgerBuilder />
+            <div className="container">
+                <BurgerBuilder />
+            </div>
 
         </div>
     );
