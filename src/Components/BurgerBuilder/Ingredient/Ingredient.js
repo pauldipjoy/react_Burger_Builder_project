@@ -14,7 +14,7 @@ const Ingredient = props => {
     let ingredient = null;
 
 
-switch(props.type) {
+switch(props.type){
 
     case 'bread-bottom':
         ingredient = <div><img src={BreadBottom} alt="Bottom Bread"/></div>
@@ -29,13 +29,11 @@ switch(props.type) {
         ingredient = <div><img src={Salad} alt="Salad"/></div>
         break;
     case 'cheese':
-        ingredient = <div><img src={Cheese} alt="Cheese"/></div>
+        ingredient = <div><img src={Cheese} alt="Cheese"/></div> 
         break;
         
     default:
         ingredient = null;    
-
-
 
 }
 
