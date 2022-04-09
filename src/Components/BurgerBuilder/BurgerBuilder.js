@@ -41,9 +41,7 @@ export default class BurgerBuilder extends Component {
                 if(item.amount <= 0) return;
                 item.amount--;
 
-            };
-
-
+            }
         }
         this.setState({ingredients: ingredients})
     }
