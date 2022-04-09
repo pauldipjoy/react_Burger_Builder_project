@@ -1,6 +1,8 @@
 import React from 'react';
-import Ingredient from '../Ingredient/Ingredient';
+import Ingredient from '../Ingredient/Ingredient.js';
 import './Burger.css';
+
+
 const Burger = props => {
 
     let ingredientArr = props.ingredients.map(item => {
