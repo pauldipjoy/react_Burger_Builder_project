@@ -8,7 +8,7 @@ import Orders from "./Orders/Orders.js";
 const Main = (props) => {
   return (
     <div>
-      <Header />
+      <Header  />
       <div className="container">
         <Route path="/orders" component={Orders} />
         <Route path="/checkout" component={Checkout} />
