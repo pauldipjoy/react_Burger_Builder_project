@@ -37,7 +37,7 @@ const Burger = props => {
         ingredientArr = <p>Please add some ingredients!</p>
     }
 
-    console.log( ingredientArr);
+    // console.log( ingredientArr);
 
     
 
