@@ -10,6 +10,7 @@ import Burger from "./Burger/Burger.js";
 import Controls from "./Controls/Controls.js";
 import Summary from "./Summary/Summary.js";
 
+
 const mapStateToProps = (state) => {
   return {
     ingredients: state.ingredients,
