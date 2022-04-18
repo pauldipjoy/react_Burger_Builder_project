@@ -56,11 +56,11 @@ class Checkout extends Component {
     };
     axios
       .post(
-        "https://burger-builder-a41c1-default-rtdb.firebaseio.com/orders.json                                                                      ",
+        "https://burger-builder-a41c1-default-rtdb.firebaseio.com/orders.json,                                                                      ",
         order
       )
       .then((response) => {
-        if(response.status === 200){
+        if (response.status === 200) {
           this.setState({
             isLoading: false,
             isModalOpen: true,
@@ -97,7 +97,7 @@ class Checkout extends Component {
             padding: "20px",
           }}
         >
-          Payment: {this.props.totalPrice} Rs/-
+          Payment: {this.props.totalPrice} Rs
         </h4>
         <form
           style={{
