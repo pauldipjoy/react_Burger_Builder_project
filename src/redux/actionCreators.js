@@ -48,6 +48,11 @@ export const fetchOrders = () => {
       )
       .then((response) => {
         dispatch(loadOrders(response.data));
-      });
+      })
+      .catch(error => {
+        dispatch(orderLoadFailed());
+      })
+    
   };
+
 };

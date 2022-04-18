@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchOrders } from "../../redux/actionCreators";
+import Spinner from "../Spinner/Spinner.js";
+import Order from "./Order/Order";
 
-const mapStateToProps = state => {
-  return{
+const mapStateToProps = (state) => {
+  return {
     orders: state.orders,
     orderLoading: state.orderLoading,
-    orderErr: state.orderErr
-
-  }
-}
+    orderErr: state.orderErr,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -17,18 +18,52 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 class Orders extends Component {
-  componentDidMount(){
+  componentDidMount() {
     this.props.fetchOrders();
   }
-  componentDidUpdate(){
+  componentDidUpdate() {
     console.log(this.props);
   }
   render() {
-    return (
-      <div>
-        <p>Orders</p>
-      </div>
-    );
+    let orders = null;
+    if (this.props.orderErr) {
+      orders = (
+        <p
+          style={{
+            border: "1px solid grey",
+            boxShadow: "1px 1px #888888",
+            borderRadius: "5px",
+            padding: "20px",
+            marginBottom: "10px",
+          }}
+        >
+          Sorry! Failed To Load Orders!
+        </p>
+      );
+    } else {
+      if (this.props.orders.length === 0) {
+        orders = (
+          <p
+            style={{
+              border: "1px solid grey",
+              boxShadow: "1px 1px #888888",
+              borderRadius: "5px",
+              padding: "20px",
+              marginBottom: "10px",
+            }}
+          >
+            You Have No Load Orders!
+          </p>
+        );
+      } else {
+        orders = this.props.orders.map((order) => {
+          ////console.log(order);
+          return <Order order={order} key={order.id} />;
+        });
+      }
+    }
+
+    return <div>{this.props.orderLoading ? <Spinner /> : orders}</div>;
   }
 }
 

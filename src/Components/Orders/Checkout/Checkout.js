@@ -56,7 +56,7 @@ class Checkout extends Component {
     };
     axios
       .post(
-        "https://burger-builder-a41c1-default-rtdb.firebaseio.com/orders.json,                                                                      ",
+        "https://burger-builder-a41c1-default-rtdb.firebaseio.com/orders.json",
         order
       )
       .then((response) => {
