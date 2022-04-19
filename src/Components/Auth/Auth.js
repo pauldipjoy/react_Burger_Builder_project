@@ -1,4 +1,4 @@
-import { Form, Formik } from "formik";
+import { Formik } from "formik";
 import React, { Component } from "react";
 
 class Auth extends Component {
@@ -17,7 +17,7 @@ class Auth extends Component {
         >
           {({ values, handleChange, handleSubmit }) => (
             <div>
-              <Form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit}>
                 <input
                   name="email"
                   placeholder="Enter Your Email"
@@ -45,7 +45,7 @@ class Auth extends Component {
                 <button type="submit" className="btn btn-success">
                   Sign Up
                 </button>
-              </Form>
+              </form>
             </div>
           )}
         </Formik>
