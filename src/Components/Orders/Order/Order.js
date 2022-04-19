@@ -1,7 +1,7 @@
 import React from "react";
 
 const Order = (props) => {
-  console.log(props);
+  ////console.log(props);
   const ingredientSummary = props.order.ingredients.map((item) => {
     return (
       <span
@@ -13,8 +13,8 @@ const Order = (props) => {
         }}
         key={item.type}
       >
-        {item.amount}x
-        <span style={{ textTransform: "capitalize" }}>{item.type}</span>
+        {item.amount} x
+        <span style={{ textTransform: "capitalize" }}> {item.type} </span>
       </span>
     );
   });
