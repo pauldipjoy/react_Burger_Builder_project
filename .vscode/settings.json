@@ -4,5 +4,5 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.formatOnSave": true,
-  "cSpell.words": ["Bkash", "Formik", "igtype", "ingtype", "Paytm"]
+  "cSpell.words": ["atleast", "Bkash", "Formik", "igtype", "ingtype", "Paytm"]
 }
