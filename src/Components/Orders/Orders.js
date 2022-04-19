@@ -26,7 +26,7 @@ class Orders extends Component {
   }
   render() {
     let orders = null;
-    if (this.props.orderErr) {
+    if(this.props.orderErr) {
       orders = (
         <p
           style={{
@@ -37,7 +37,7 @@ class Orders extends Component {
             marginBottom: "10px",
           }}
         >
-          Sorry! Failed To Load Orders!
+          Sorry! Failed To Load Orders
         </p>
       );
     } else {
