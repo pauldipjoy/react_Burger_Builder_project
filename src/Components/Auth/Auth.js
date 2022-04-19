@@ -2,6 +2,15 @@ import { Formik } from "formik";
 import React, { Component } from "react";
 
 class Auth extends Component {
+  state = {
+    mode: "Sign Up",
+  };
+
+  switchModeHandler = () => {
+    this.setState({
+      mode: this.state.mode === "Sign Up" ? "Login" : "Sign Up",
+    });
+  };
   render() {
     return (
       <div>
@@ -28,11 +37,14 @@ class Auth extends Component {
             } else if (values.password.length < 4) {
               errors.password = "Must be atleast 4 Characters!";
             }
-            if (!values.passwordConfirm) {
-              errors.passwordConfirm = "Required";
-            } else if (values.password !== values.passwordConfirm) {
-              errors.passwordConfirm = "Password fields does not match";
+            if (this.state.mode === "Sign Up") {
+              if (!values.passwordConfirm) {
+                errors.passwordConfirm = "Required";
+              } else if (values.password !== values.passwordConfirm) {
+                errors.passwordConfirm = "Password fields does not match";
+              }
             }
+
             ////console.log("Errors:",errors);
             return errors;
           }}
@@ -45,6 +57,21 @@ class Auth extends Component {
                 borderRadius: "7px",
               }}
             >
+              <button
+                style={{
+                  width: "100%",
+                  backgroundColor: "#D70f64",
+                  color: "white",
+                  fontSize: "2rem",
+                  borderRadius: "5px",
+                }}
+                className="btn btn-lg"
+                onClick={this.switchModeHandler}
+              >
+                Switch To {this.state.mode === "Sign Up" ? "Login" : "Sign Up"}
+              </button>
+              <br />
+              <br />
               <form onSubmit={handleSubmit}>
                 <input
                   name="email"
@@ -53,7 +80,7 @@ class Auth extends Component {
                   value={values.email}
                   onChange={handleChange}
                 />
-                <span style={{color:"#D70F64"}}>{errors.email}</span>
+                <span style={{ color: "#D70F64" }}>{errors.email}</span>
                 <br />
                 <input
                   name="password"
@@ -62,19 +89,26 @@ class Auth extends Component {
                   value={values.password}
                   onChange={handleChange}
                 />
-                <span style={{color:"#D70F64"}}>{errors.password}</span>
+                <span style={{ color: "#D70F64" }}>{errors.password}</span>
                 <br />
-                <input
-                  name="passwordConfirm"
-                  placeholder="Confirm Password"
-                  className="form-control"
-                  value={values.passwordConfirm}
-                  onChange={handleChange}
-                />
-                <span style={{color:"#D70F64"}}>{errors.passwordConfirm}</span>
-                <br />
+                {this.state.mode === "Sign Up" ? (
+                  <div>
+                    <input
+                      name="passwordConfirm"
+                      placeholder="Confirm Password"
+                      className="form-control"
+                      value={values.passwordConfirm}
+                      onChange={handleChange}
+                    />
+                    <span style={{ color: "#D70F64" }}>
+                      {errors.passwordConfirm}
+                    </span>
+                    <br />
+                  </div>
+                ) : null}
+
                 <button type="submit" className="btn btn-success">
-                  Sign Up
+                  {this.state.mode === "Sign Up" ? "Sign Up" : "Login"}
                 </button>
               </form>
             </div>
