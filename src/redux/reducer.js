@@ -85,7 +85,6 @@ export const reducer = (state = INITIAL_STATE, action) => {
         orderErr: true,
         orderLoading: false,
       };
-
     default:
       return state;
   }
