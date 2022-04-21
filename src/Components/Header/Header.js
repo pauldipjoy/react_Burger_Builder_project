@@ -5,45 +5,45 @@ import { Nav, Navbar, NavbarBrand, NavItem } from "reactstrap";
 import Logo from "../../assets/logo.png";
 import "./Header.css";
 
-const mapStateToProps = state => {
-  return{
-    token: state.token
-  }
-}
+const mapStateToProps = (state) => {
+  return {
+    token: state.token,
+  };
+};
 
 const Header = (props) => {
   let links = null;
-  if(props.token === null){
+  if (props.token === null) {
     links = (
-
       <Nav className="mr-md-5">
-          
-          <NavItem>
-            <NavLink exact to="/login" className="NavLink">
-              Login
-            </NavLink>
-          </NavItem>
-        </Nav>
-      
-    )
-}else{
-
-  links = (
-    <Nav className="mr-md-5">
-      <NavItem>
-            <NavLink exact to="/" className="NavLink">
-              Burger Builder
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink exact to="/orders" className="NavLink">
-              Orders
-            </NavLink>
-          </NavItem>
-    </Nav>
-  )
-
-}
+        <NavItem>
+          <NavLink exact to="/login" className="NavLink">
+            Login
+          </NavLink>
+        </NavItem>
+      </Nav>
+    );
+  } else {
+    links = (
+      <Nav className="mr-md-5">
+        <NavItem>
+          <NavLink exact to="/" className="NavLink">
+            Burger Builder
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink exact to="/orders" className="NavLink">
+            Orders
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink exact to="/logout" className="NavLink">
+            Logout
+          </NavLink>
+        </NavItem>
+      </Nav>
+    );
+  }
   return (
     <div className="Navigation">
       <Navbar
@@ -57,7 +57,6 @@ const Header = (props) => {
         </NavbarBrand>
 
         {links}
-        
       </Navbar>
     </div>
   );
