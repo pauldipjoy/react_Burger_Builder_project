@@ -6,6 +6,7 @@ import { Button, Modal, ModalBody } from "reactstrap";
 import { resetIngredients } from "../../../redux/actionCreators.js";
 import Spinner from "../../Spinner/Spinner";
 
+
 const mapStateToProps = (state) => {
   return {
     ingredients: state.ingredients,
