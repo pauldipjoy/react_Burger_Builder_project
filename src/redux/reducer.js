@@ -21,7 +21,6 @@ const INITIAL_STATE = {
   userId: null,
   authLoading: false,
   authFailedMsg: null,
-
 };
 
 export const reducer = (state = INITIAL_STATE, action) => {
@@ -106,16 +105,15 @@ export const reducer = (state = INITIAL_STATE, action) => {
         userId: null,
       };
     case actionTypes.AUTH_LOADING:
-      return{
+      return {
         ...state,
         authLoading: action.payload,
-      } 
+      };
     case actionTypes.AUTH_FAILED:
-      return{
+      return {
         ...state,
         authFailedMsg: action.payload,
-
-      }   
+      };
     default:
       return state;
   }
